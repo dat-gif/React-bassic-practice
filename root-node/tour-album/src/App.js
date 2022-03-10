@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import Loading from "./component/Loading";
 import Tours from "./component/Tours";
 const dataUrl = "https://course-api.com/react-tours-project";
@@ -11,6 +11,7 @@ function App() {
     const newTours = tours.filter((tour) => tour.id !== id);
     setTour(newTours);
   };
+
   const fetchTour = async () => {
     try {
       const response = await fetch(dataUrl);
@@ -34,6 +35,7 @@ function App() {
       </main>
     );
   }
+
   if (tours.length === 0) {
     return (
       <main>
@@ -46,6 +48,7 @@ function App() {
       </main>
     );
   }
+
   return (
     <main>
       <Tours tours={tours} removeTour={removeTour} />
